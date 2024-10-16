@@ -1,4 +1,4 @@
-import {Model} from 'mongoose';
+import mongoose, {Model} from 'mongoose';
 
 export interface UserFields {
   email: string;
@@ -8,6 +8,20 @@ export interface UserFields {
   avatar: string | null;
   displayName: string;
   googleID?: string;
+}
+
+export interface IngredientFields {
+  name: string;
+  quantity: string;
+}
+
+export interface CocktailFields {
+  user: mongoose.Types.ObjectId;
+  name: string;
+  image: string | null;
+  recipe: string;
+  isPublished: boolean;
+  ingredients: IngredientFields[];
 }
 
 export interface Parameter {
