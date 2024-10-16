@@ -25,7 +25,7 @@ const run = async () => {
     email: 'test2@test.com',
     displayName: 'Петр',
     avatar: 'fixtures/petr.jpg',
-    password: '*IBU#D@BH',
+    password: '*IBU#D@Bh',
     role: 'user',
     token: crypto.randomUUID(),
   }, {
