@@ -19,6 +19,22 @@ export interface LoginMutation {
   password: string;
 }
 
+export interface ingredientsData {
+  _id: string;
+  name: string;
+  quantity: string;
+}
+
+export interface CocktailMutation {
+  _id: string;
+  user: string;
+  name: string;
+  image: string;
+  recipe: string;
+  isPublished: boolean;
+  ingredients: ingredientsData[];
+}
+
 export interface ValidationError {
   errors: {
     [key: string]: {

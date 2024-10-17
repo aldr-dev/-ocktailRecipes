@@ -18,7 +18,7 @@ const NavBar = () => {
               <Box component={NavLink} to="/" display="flex" alignItems="center" sx={{textDecoration: 'none', color: '#fff', cursor: 'pointer'}}>
                 <img src={cocktailsAppLogo} alt="Logo" style={{width: 65, height: 65, marginRight: 10, borderRadius: '10px'}}/>
                 <Typography variant="h5" color='#000' fontWeight='bold' component="span">
-                  Рецепты коктейлей
+                  Коктейли
                 </Typography>
               </Box>
             </Grid>
