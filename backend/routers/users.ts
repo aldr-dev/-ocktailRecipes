@@ -31,11 +31,11 @@ usersRouter.post('/', imagesUpload.single('avatar'), async (req, res, next) => {
 
 usersRouter.post('/sessions', async (req, res, next) => {
   try {
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.email || !req.body.password) {
       return res.status(400).send({error: 'Поля email и password обязательны!'});
     }
 
-    const user = await User.findOne({username: req.body.username});
+    const user = await User.findOne({email: req.body.email});
 
     if (!user) {
       return res.status(400).send({error: 'Пользователь не найден!'});
@@ -82,7 +82,7 @@ usersRouter.post('/google', async (req, res, next) => {
 
     if (!user) {
       user = new User({
-        username: email,
+        email: email,
         password: crypto.randomUUID(),
         googleID: id,
         displayName,

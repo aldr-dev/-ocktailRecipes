@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema<UserFields, UserModel, UserMethods>({
           return true;
         }
 
-        const user = await User.findOne({username: value});
+        const user = await User.findOne({email: value});
         return !user;
       },
       message: 'Данный email уже зарегистрирован!',
