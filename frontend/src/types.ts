@@ -19,7 +19,7 @@ export interface LoginMutation {
   password: string;
 }
 
-export interface ingredientsData {
+export interface IngredientsData {
   _id: string;
   name: string;
   quantity: string;
@@ -32,7 +32,19 @@ export interface CocktailMutation {
   image: string;
   recipe: string;
   isPublished: boolean;
-  ingredients: ingredientsData[];
+  ingredients: IngredientsData[];
+}
+
+export interface Ingredient {
+  name: string;
+  quantity: string;
+}
+
+export interface CocktailFormFields {
+  name: string;
+  image: File | null;
+  recipe: string;
+  ingredients: Ingredient[];
 }
 
 export interface ValidationError {

@@ -7,6 +7,7 @@ import Login from './features/users/Login';
 import {useAppSelector} from './app/hooks';
 import {selectUser} from './features/users/usersSlice';
 import ProtectedRoute from './UI/ProtectedRoute/ProtectedRoute';
+import CocktailForm from './features/cocktails/components/CocktailForm';
 
 const App = () => {
   const user = useAppSelector(selectUser);
@@ -25,7 +26,7 @@ const App = () => {
           }/>
           <Route path="/add-new-cocktail" element={
             <ProtectedRoute isAllowed={user && (user.role === 'user' || user.role === 'admin')}>
-              {/*форма добавления коктейлей*/}
+              <CocktailForm/>
             </ProtectedRoute>
           }/>
           <Route path="*" element={<PageNotFound/>}/>

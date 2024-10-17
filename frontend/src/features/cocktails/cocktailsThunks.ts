@@ -1,10 +1,10 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {CocktailMutation, ValidationError} from '../../types';
+import {CocktailFormFields, CocktailMutation, ValidationError} from '../../types';
 import axiosApi from '../../axiosApi';
 import {isAxiosError} from 'axios';
 import {RootState} from '../../app/store';
 
-export const sendCocktailsData = createAsyncThunk<void, CocktailMutation, { rejectValue: ValidationError }>(
+export const sendCocktailsData = createAsyncThunk<void, CocktailFormFields, { rejectValue: ValidationError }>(
   'cocktails/sendCocktailsData',
   async (cocktailData, {rejectWithValue}) => {
     try {
@@ -17,7 +17,7 @@ export const sendCocktailsData = createAsyncThunk<void, CocktailMutation, { reje
         formData.append('image', cocktailData.image);
       }
 
-      await axiosApi.post<CocktailMutation>('/cocktails', formData);
+      await axiosApi.post<CocktailFormFields>('/cocktails', formData);
     } catch (error) {
       if (isAxiosError(error) && error.response && error.response.status === 400) {
         return rejectWithValue(error.response.data);
