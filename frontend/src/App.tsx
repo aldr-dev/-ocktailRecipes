@@ -9,6 +9,7 @@ import {selectUser} from './features/users/usersSlice';
 import ProtectedRoute from './UI/ProtectedRoute/ProtectedRoute';
 import CocktailForm from './features/cocktails/components/CocktailForm';
 import Home from './features/cocktails/containers/Home';
+import MyCocktails from './features/cocktails/containers/MyCocktails';
 
 const App = () => {
   const user = useAppSelector(selectUser);
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/register" element={<Register/>}/>
           <Route path="/my-cocktails" element={
             <ProtectedRoute isAllowed={user && (user.role === 'user' || user.role === 'admin')}>
-              {/*страницы моих коктейлей*/}
+              <MyCocktails />
             </ProtectedRoute>
           }/>
           <Route path="/add-new-cocktail" element={
