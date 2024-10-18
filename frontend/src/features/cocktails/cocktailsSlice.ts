@@ -128,7 +128,5 @@ export const {
   selectFetchCocktailsLoading,
   selectFetchOneCocktailLoading,
   selectFetchCocktailsByAuthorLoading,
-  selectToggleCocktailLoading,
-  selectDeleteOneCocktailLoading,
   selectCreateError,
 } = cocktailsSlice.selectors;
