@@ -97,7 +97,7 @@ const CocktailForm = () => {
       ) {
         await dispatch(sendCocktailsData(cocktail)).unwrap();
         setResetFileName(true);
-        navigate('/');
+        navigate('/my-cocktails');
       }
     } catch (error) {
       console.error('Произошла ошибка при отправки данных. Пожалуйста, попробуйте позже. ' + error);

@@ -50,12 +50,7 @@ cocktailsRouter.get('/', role, async (req: RequestWithUser, res, next) => {
           cocktails = await Cocktail.find({}).sort({_id: -1});
         }
         if (req.user?.role === 'user') {
-          cocktails = await Cocktail.find({
-            $or: [{isPublished: true}, {
-              user: req.user._id,
-              isPublished: false
-            }]
-          }).sort({_id: -1});
+          cocktails = await Cocktail.find({isPublished: true}).sort({_id: -1});
         }
       } else {
         cocktails = await Cocktail.find({isPublished: true}).sort({_id: -1});
